@@ -1,0 +1,89 @@
+{%extends 'base.html'%} {%load static%} {%block body%}
+<!-- Page Header-->
+<header class="masthead">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="page-heading">
+          <h1>Create Blog</h1>
+          <span class="subheading">Let's create a new blog.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Main Content-->
+<main class="mb-4">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <p>
+          Want to get in touch? Fill out the form below to send me a message and
+          I will get back to you as soon as possible!
+        </p>
+        <div class="my-5">
+          <form method="post">
+            {%csrf_token%}
+            <div class="form-floating">
+              <input
+                class="form-control"
+                id="id_title"
+                name="title"
+                type="text"
+                value="{{title}}"
+                placeholder="Enter your name..."
+                required=""
+              />
+              <label for="id_title">Title</label>
+              <div class="invalid-feedback" data-sb-feedback="name:required">
+                A name is required.
+              </div>
+            </div>
+            <div class="form-floating">
+              <input
+                class="form-control"
+                id="id_subtitle"
+                name="subtitle"
+                type="text"
+                value="{{subtitle}}"
+                placeholder="Enter your subheading..."
+                data-sb-validations="required,email"
+              />
+              <label for="id_subtitle">Subtitle</label>
+            </div>
+
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                id="id_description"
+                name="description"
+                placeholder="Enter your message here..."
+                style="height: 12rem"
+                data-sb-validations="required"
+              >
+{{description}}</textarea
+              >
+              <label for="id_description">Description</label>
+              <div class="invalid-feedback" data-sb-feedback="message:required">
+                A message is required.
+              </div>
+            </div>
+            <br />
+            <input type="hidden" name="user" value="{{user.id}}" />
+
+            <!-- Submit Button-->
+            <button
+              class="btn btn-primary text-uppercase"
+              id="submitButton"
+              type="submit"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{%endblock%}

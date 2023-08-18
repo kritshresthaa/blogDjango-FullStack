@@ -1,0 +1,14 @@
+<div>
+    <form  method="post">
+        {%csrf_token%}
+        <p>Name</p>
+        <input type="text" name="name"   required autofocus>
+
+        <p>Email</p>
+        <input type="email" name="email" required>
+
+        <p>Message</p>
+        <textarea name="message"  cols="30" rows="10"></textarea required>
+        <button type="submit">Send</button>
+    </form>
+</div>

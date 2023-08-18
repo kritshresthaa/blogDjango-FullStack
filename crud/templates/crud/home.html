@@ -1,0 +1,18 @@
+<h1>This is templates</h1>
+
+<!-- paticular blog -->
+{%if blog%}
+<h2>{{blog.title}}</h2>
+<h5>{{blog.description}}</h5>
+
+{%endif%}
+
+<!-- all blog -->
+{%if blogs%} {%for blog in blogs %}
+
+<a href="{%url 'crud:particular' blog.id%}">
+  <h2>{{blog.title}}</h2>
+</a>
+
+<h5>{{blog.description}}</h5>
+{%endfor%} {%endif%}
