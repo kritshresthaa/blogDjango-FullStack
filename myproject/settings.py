@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['blog-nzcv.onrender.com', 'blog.kritshrestha.com.np']
 
 
 # Application definition
@@ -131,7 +131,7 @@ STATIC_URL = 'public/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "public")
 ]
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 STATIC_ROOT = os.path.join(BASE_DIR / "staticfiles")
 
 
